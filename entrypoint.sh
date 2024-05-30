@@ -28,12 +28,14 @@ then
     DATA="${DATA} $(printf '"body":"Automated release based on keyword: %s",' "$*")"
     DATA="${DATA} $(printf '"draft":false, "prerelease":false}')"
 
-    URL="https://api.github.com/repos/tomaszStrzeszewski23/gh_actions_1/releases"
+    URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/releases"
 
     if [[ "${LOCAL_TEST}" == *"true"* ]];
     then
         echo "## [TESTING] Keyword was found but no release was created."
     else
+        echo 'GOWNO JEBANE'
+        echo $URL
         echo $DATA | http POST $URL Authorization:"${GITHUB_TOKEN}" | jq .
     fi
 # otherwise
