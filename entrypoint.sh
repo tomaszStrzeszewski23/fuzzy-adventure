@@ -34,7 +34,7 @@ then
     then
         echo "## [TESTING] Keyword was found but no release was created."
     else
-        echo $DATA | http POST $URL Authorization:${GITHUB_TOKEN} | jq .
+        echo $DATA | http POST $URL Authorization:"${GITHUB_TOKEN}" | jq .
     fi
 # otherwise
 else
